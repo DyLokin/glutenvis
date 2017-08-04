@@ -1,0 +1,131 @@
+karyotype = chapman_repaired.tsv.karyo.txt.wheat, chapman_bands.txt
+chromosomes_units = 100
+chromosomes_order = chr1A,chr1B,chr1D,chr2A,chr2B,chr2D,chr3A,chr3B,chr3D,chr4A,chr4B,chr4D,chr5A,chr5B,chr5D,chr6A,chr6B,chr6D,chr7A,chr7B,chr7D
+
+<colors>
+	GluteninHMW=61,234,187		#Turquoise
+	Gliadingamma=121,210,43		#Grass Green
+	Gliadinunknown=255,229,54		#Yellow
+	Gliadinomega=205,140,70		#Tan
+	GluteninLMW=237,75,43		#Red
+	ProlaminHordein=215,82,157	#Magenta
+	ProlaminGlobulin=244,140,78	#Orange
+	Gliadinalpha=98,121,208		#Blue
+	ProlaminAvenin=117,172,143	#Grey-Green
+	ProlaminFarinin=149,96,236	#Purple
+	Gliadindelta=127,127,127		#Grey
+
+</colors>
+
+<ideogram>
+	<spacing>
+		default = 0.005r
+		<pairwise chr1D chr2A>
+			spacing = 5r
+		</pairwise>
+		<pairwise chr2D chr3A>
+			spacing = 5r
+		</pairwise>
+		<pairwise chr3D chr4A>
+			spacing = 5r
+		</pairwise>
+		<pairwise chr4D chr5A>
+			spacing = 5r
+		</pairwise>
+		<pairwise chr5D chr6A>
+			spacing = 5r
+		</pairwise>
+		<pairwise chr6D chr7A>
+			spacing = 5r
+		</pairwise>
+		<pairwise chr7D chr1A>
+			spacing = 5r
+		</pairwise>
+	</spacing>
+
+	#Ideogram position, fill and outline
+	radius           = 0.45r
+	thickness        = 50p
+	fill             = yes
+	fill_color       = white # black
+	stroke_color     = black
+	stroke_thickness = 0p
+
+	# Minimum definition for ideogram labels.
+	show_label       = yes
+	# see etc/fonts.conf for list of font names
+	label_font       = default
+	label_radius = 1.35r # 0.85r# 1.25r # 1.7r
+	label_size       = 40
+	label_parallel   = yes
+
+  # Bands definition
+	show_bands = yes
+	fill_bands = yes
+	band_stroke_thickness = 2p
+	band_stroke_color     = white
+	band_transparency     = 1
+
+</ideogram>
+
+show_ticks          = yes
+show_tick_labels    = yes
+show_grid  = yes
+
+
+# PLOTS
+
+<plots>
+
+	<plot>
+		show = yes
+		type = scatter
+		file = mappedglutens.txt
+		r0 = 1.03r
+		r1 = 1.13r
+		min = 0
+		max = 2
+		# color = eval(sprintf("reds-9-seq", remap_round(counter(plot),0,50,1,9)))
+                stroke_thickness = 0
+                glyph_size = 12
+	</plot>
+
+
+	<plot>
+		show = yes
+		type = scatter
+		file = mappedglutensCS.txt
+		r0 = 1.135r
+		r1 = 1.145r
+		min = 0
+		max = 2
+		# color = eval(sprintf("reds-9-seq", remap_round(counter(plot),0,50,1,9)))
+                stroke_thickness = 0
+                glyph_size = 12
+	</plot>
+
+</plots>
+
+################################################################
+# The remaining content is standard and required. It is imported
+# from default files in the Circos distribution.
+#
+# These should be present in every Circos configuration file and
+# overridden as required. To see the content of these files,
+# look in etc/ in the Circos distribution.
+
+<image>
+# Included from Circos distribution.
+<<include /etc/image.conf>>
+
+radius* = 3000p
+
+</image>
+
+# RGB/HSV color definitions, color lists, location of fonts, fill patterns.
+# Included from Circos distribution.
+<<include /etc/colors_fonts_patterns.conf>>
+
+# Debugging, I/O an dother system parameters
+# Included from Circos distribution.
+<<include /etc/housekeeping.conf>>
